@@ -21,7 +21,7 @@ project:
   #          the shuttle and VHDL support may be dropped for future shuttles if we see low usage.
   source_files:
     - "project.vhdl"
-    - "fsm.vhdl"
+    - "vending_machine_mp.vhdl"
 
 # The pinout of your project. Leave unused pins blank. DO NOT delete or add any pins.
 # This section is for the datasheet/website. Use descriptive names (e.g., RX, TX, MOSI, SCL, SEG_A, etc.).
