@@ -224,5 +224,3 @@ begin
                      else '0';
 
 end architecture;
-fsm.txt
-Affichage de fsm.txt en cours...
