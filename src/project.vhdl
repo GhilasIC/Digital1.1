@@ -46,7 +46,7 @@ begin
     btn_s  <= ui_in(4 downto 1);
 
     -- Instantiate the vending machine FSM (direct entity instantiation)
-    u_fsm : work.vending_machine_mp(rtl)
+    u_fsm : vending_machine_mp(rtl)
         port map (
             clk              => clk,
             reset            => reset_s,
