@@ -3,7 +3,7 @@ project:
   title:        "FSM"      # Project title
   author:       "G.kahlouche "      # Your name
   discord:      ""      # Your discord username, for communication and automatically assigning you a Tapeout role (optional)
-  description:  ""      # One line description of what your project does
+  description:  "dd"      # One line description of what your project does
   language:     "VHDL"  # other examples include Verilog, SystemVerilog, Amaranth, etc
   clock_hz:     100000000       # Clock frequency in Hz (or 0 if not applicable)
 
