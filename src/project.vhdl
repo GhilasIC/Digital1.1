@@ -17,7 +17,7 @@ end tt_um_VHDL_FSM;
 
 architecture rtl of tt_um_VHDL_FSM is
     -- Internal wiring
-    component vending_machine_mp is
+    component vending_machine_mp(rtl) is
         Port (
             clk           : in  std_logic;
             reset         : in  std_logic;                    -- sync, active-high
