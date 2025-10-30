@@ -17,7 +17,7 @@ end tt_um_VHDL_FSM;
 
 architecture rtl of tt_um_VHDL_FSM is
     -- Internal wiring
-    component vending_machine_mp(rtl) is
+    component vending_machine_mp is
         Port (
             clk           : in  std_logic;
             reset         : in  std_logic;                    -- sync, active-high
@@ -46,7 +46,7 @@ begin
     btn_s  <= ui_in(4 downto 1);
 
     -- Instantiate the vending machine FSM (direct entity instantiation)
-    u_fsm : vending_machine_mp(rtl)
+    u_fsm : vending_machine_mp
         port map (
             clk              => clk,
             reset            => reset_s,
