@@ -19,15 +19,15 @@ architecture rtl of tt_um_VHDL_FSM is
     -- Internal wiring
     component vending_machine_mp is
         Port (
-    clk           : in  std_logic;
-    reset         : in  std_logic;                    -- sync, active-high
-    coin          : in  std_logic;                    -- +1 credit per pulse
-    btn           : in  std_logic_vector(3 downto 0); -- 0000 wait, 0001 cancel, 0010 refund, 0011..1111 products
+            clk           : in  std_logic;
+            reset         : in  std_logic;                    -- sync, active-high
+            coin          : in  std_logic;                    -- +1 credit per pulse
+            btn           : in  std_logic_vector(3 downto 0); -- 0000 wait, 0001 cancel, 0010 refund, 0011..1111 products
 
-    dispense_product : out std_logic;                 -- 1-cycle vend strobe
-    product_num      : out std_logic_vector(3 downto 0); -- holds 1..13; aligned with dispense_product
-    change           : out std_logic                  -- 1-cycle pulse per coin returned (with 1-cycle gaps)
-        );
+            dispense_product : out std_logic;                 -- 1-cycle vend strobe
+            product_num      : out std_logic_vector(3 downto 0); -- holds 1..13; aligned with dispense_product
+            change           : out std_logic                  -- 1-cycle pulse per coin returned (with 1-cycle gaps)
+            );
     end component;
 
     signal reset_s        : std_logic;
