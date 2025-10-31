@@ -27,22 +27,22 @@ project:
 # This section is for the datasheet/website. Use descriptive names (e.g., RX, TX, MOSI, SCL, SEG_A, etc.).
 pinout:
   # Inputs
-  ui[0]: "gg"
-  ui[1]: ""
-  ui[2]: ""
-  ui[3]: ""
-  ui[4]: ""
-  ui[5]: ""
-  ui[6]: ""
+  ui[0]: "clk"
+  ui[1]: "reset"
+  ui[2]: "coin"
+  ui[3]: "btn (0)"
+  ui[4]: "btn (1)"
+  ui[5]: "btn (2)"
+  ui[6]: "btn (3)"
   ui[7]: ""
 
   # Outputs
-  uo[0]: ""
-  uo[1]: ""
-  uo[2]: ""
-  uo[3]: ""
-  uo[4]: ""
-  uo[5]: ""
+  uo[0]: "dispense"
+  uo[1]: "change"
+  uo[2]: "product_num(0)"
+  uo[3]: "product_num(1)"
+  uo[4]: "product_num(2)"
+  uo[5]: "product_num(3)"
   uo[6]: ""
   uo[7]: ""
 
