@@ -42,13 +42,21 @@ Timing/Reset reset is asynchronous, active-high: immediately sends the FSM to id
 # How to test
 ### Scenario 1 — Simple vend, no change
 1 coin (coin 1-cycle pulse), select a price-1 item (idx 0..3 → any btn in 0011..0111).
+
 Expect: dispense_product='1' for 1 cycle, change='0'.
+
 <img src="case 1.png" width="1260" alt="Scenario 1">
+
 <img src="case 2.png" width="1260" alt="Scenario 2">
+
 <img src="case 3.png" width="1260" alt="Scenario 3">
+
 <img src="case 4.png" width="1260" alt="Scenario 4">
+
 <img src="case 5.png" width="1260" alt="Scenario 5">
+
 <img src="case 6.png" width="1260" alt="Scenario 6">
+
 
 # External hardware
 
