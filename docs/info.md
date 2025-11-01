@@ -47,24 +47,24 @@ Timing/Reset reset is asynchronous, active-high: immediately sends the FSM to id
 
 <img src="case 1.png" width="1260" alt="Scenario 1">
 
-### Scenario 2 — Simple vend, no change
-1 coin (coin 1-cycle pulse), select btn in 0011
+### Scenario 2 — 
+Input : 2 coins ( 2 pulses each coin for 1-cycle pulse), select btn in 0111
 
-##### Expect: dispense_product='1' for 1 cycle, change='0'.
+##### Expect: dispense_product='1' for 1 cycle, product_num= (5)10 = (101)2 "until next scenario/btn press" and  change='0'.
 
 <img src="case 2.png" width="1260" alt="Scenario 2">
 
-### Scenario 1 — Simple vend, no change
-1 coin (coin 1-cycle pulse), select btn in 0011
+### Scenario 3 — 
+Input : 2 coins ( 2 pulses each coin for 1-cycle pulse), select btn in 1011
 
-##### Expect: dispense_product='1' for 1 cycle, change='0'.
+##### Expect: dispense_product='1' for 1 cycle, (11)10 = (1011)2 "until next scenario/btn press" and  change='0'.
 
 <img src="case 3.png" width="1260" alt="Scenario 3">
 
-### Scenario 1 — Simple vend, no change
-1 coin (coin 1-cycle pulse), select btn in 0011
+### Scenario 4 — 
+Input : 3 coins ( 3 pulses, each coin for 1-cycle pulse), select btn in 0011 (price product = 1 coin)
 
-##### Expect: dispense_product='1' for 1 cycle, change='0'.
+##### Expect: dispense_product='1' for 1 cycle, (1)10 = (0001)2 "until next scenario/btn press" and  change='1' then '0' then '1' (2 pulses for 2 coins) .
 
 <img src="case 4.png" width="1260" alt="Scenario 4">
 
