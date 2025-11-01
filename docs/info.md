@@ -23,17 +23,11 @@ st_select → (st_refund_pulse ↔ st_refund_gap)* → st_select
                 0010 → refund (return all credit as spaced pulses)
                 0011..1111 → product codes for items 1..13 (internal idx 0..12)
 
-Selection & Pricing
+## Selection & Pricing
 
 A product code is accepted on a press (must return to 0000 between presses).
 
-Prices depend on the selected index (sel_idx):
-
-idx 0..3 → price 1
-
-idx 4..7 → price 2
-
-idx 8..12 → price 3
+Prices depend on the selected index (sel_idx): idx 0..3 → price 1, idx 4..7 → price 2, idx 8..12 → price 3
 
 When a valid selection exists and credit ≥ price, the FSM vends:
 
