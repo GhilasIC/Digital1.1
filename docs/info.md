@@ -47,13 +47,38 @@ Timing/Reset reset is asynchronous, active-high: immediately sends the FSM to id
 
 <img src="case 1.png" width="1260" alt="Scenario 1">
 
+### Scenario 2 — Simple vend, no change
+1 coin (coin 1-cycle pulse), select btn in 0011
+
+##### Expect: dispense_product='1' for 1 cycle, change='0'.
+
 <img src="case 2.png" width="1260" alt="Scenario 2">
+
+### Scenario 1 — Simple vend, no change
+1 coin (coin 1-cycle pulse), select btn in 0011
+
+##### Expect: dispense_product='1' for 1 cycle, change='0'.
 
 <img src="case 3.png" width="1260" alt="Scenario 3">
 
+### Scenario 1 — Simple vend, no change
+1 coin (coin 1-cycle pulse), select btn in 0011
+
+##### Expect: dispense_product='1' for 1 cycle, change='0'.
+
 <img src="case 4.png" width="1260" alt="Scenario 4">
 
+### Scenario 1 — Simple vend, no change
+1 coin (coin 1-cycle pulse), select btn in 0011
+
+##### Expect: dispense_product='1' for 1 cycle, change='0'.
+
 <img src="case 5.png" width="1260" alt="Scenario 5">
+
+### Scenario 1 — Simple vend, no change
+1 coin (coin 1-cycle pulse), select btn in 0011
+
+##### Expect: dispense_product='1' for 1 cycle, change='0'.
 
 <img src="case 6.png" width="1260" alt="Scenario 6">
 
