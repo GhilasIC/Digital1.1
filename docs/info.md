@@ -25,33 +25,32 @@ st_select → (st_refund_pulse ↔ st_refund_gap)* → st_select
 
 ## Selection & Pricing
 
-A product code is accepted on a press (must return to 0000 between presses).
-
 Prices depend on the selected index (sel_idx): idx 0..3 → price 1, idx 4..7 → price 2, idx 8..12 → price 3
+When a valid selection exists and credit ≥ price, the FSM vends: Credit is debited by price in st_vend. If credit remains, it enters the make-change sequence (spaced pulses). Otherwise, it returns to st_select.
 
-When a valid selection exists and credit ≥ price, the FSM vends:
-
-Credit is debited by price in st_vend.
-
-If credit remains, it enters the make-change sequence (spaced pulses).
-
-Otherwise, it returns to st_select.
-
-Refund vs. Make-change
-
-Refund (btn="0010") returns all current credit as pulses with 1-cycle gaps.
-
-Make-change happens after a vend if debit left credit > 0; same pulse/gap pattern.
+# Refund vs. Make-change
+Refund (btn="0010") returns all current credit as pulses with 1-cycle gaps. Make-change happens after a vend if debit left credit > 0; same pulse/gap pattern.
 
 
+# Outputs (Moore) 
+- dispense = '1' only while in dispense_product (exactly one clock cycle). 
+- change = '1' only while in return_change (exactly one clock cycle).
+- product_num (4 bits) latches the 1..13 product number on entry to st_vend, stays stable until the next coin or button press (or reset). This aligns naturally with the dispense_product strobe.
+  
+Timing/Reset reset is asynchronous, active-high: immediately sends the FSM to idle. State updates on the rising edge of clk. Inputs are sampled synchronously. The “one-cycle pulse” behavior comes from those terminal states automatically returning to idle on the next clock.
 
-Outputs (Moore) dispense = '1' only while in dispense_product (exactly one clock cycle). change = '1' only while in return_change (exactly one clock cycle).
-
-Timing/Reset reset is asynchronous, active-high: immediately sends the FSM to idle. State updates on the rising edge of clk. Inputs are sampled synchronously; give them setup/hold around the rising edge. The “one-cycle pulse” behavior comes from those terminal states automatically returning to idle on the next clock.
 ## How to test
 
-todoExplain how to use your project
 
 ## External hardware
 
-todoList external hardware used in your project (e.g. PMOD, LED display, etc), if any
+Inputs:
+- coin → 1x pushbutton or DIP (debounced)
+- btn(3:0) → 4x switches to issue 0001 (cancel), 0010 (refund), and 0011..1111 (products)
+
+Outputs:
+- 1x LED for dispense_product (short flash on vend)
+- 1x LED for change (pulses with visible gaps)
+- 4x LEDs for product_num (optional)
+
+Clock & reset: board oscillator + synchronous active-high reset generation.
