@@ -40,10 +40,10 @@ Refund (btn="0010") returns all current credit as pulses with 1-cycle gaps. Make
 Timing/Reset reset is asynchronous, active-high: immediately sends the FSM to idle. State updates on the rising edge of clk. Inputs are sampled synchronously. The “one-cycle pulse” behavior comes from those terminal states automatically returning to idle on the next clock.
 
 # How to test
-### Scenario 1 — Simple vend, no change
+### Scenario 1 — 
 1 coin (coin 1-cycle pulse), select btn in 0011
 
-##### Expect: dispense_product='1' for 1 cycle, change='0'.
+##### Expect: dispense_product='1' for 1 cycle, product_num= (10)10 = (1010)2 "until next scenario/btn press" and  change='0'.
 
 <img src="case 1.png" width="1260" alt="Scenario 1">
 
