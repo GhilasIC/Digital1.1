@@ -15,7 +15,7 @@ States:
 st_select → st_vend → (st_mc_pulse ↔ st_mc_gap)* → st_select
 st_select → (st_refund_pulse ↔ st_refund_gap)* → st_select
 
-# Inputs: 
+## Inputs: 
 
 coin (1 bit): rising-edge–counted +1 credit per pulse (capped at 7).
 
