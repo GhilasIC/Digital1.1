@@ -40,7 +40,7 @@ Refund (btn="0010") returns all current credit as pulses with 1-cycle gaps. Make
 Timing/Reset reset is asynchronous, active-high: immediately sends the FSM to idle. State updates on the rising edge of clk. Inputs are sampled synchronously. The “one-cycle pulse” behavior comes from those terminal states automatically returning to idle on the next clock.
 
 # How to test
-<img src="case 1.png" width="840" alt="Scenario 1">
+<img src="case 1.png" width="1260" alt="Scenario 1">
 
 # External hardware
 
