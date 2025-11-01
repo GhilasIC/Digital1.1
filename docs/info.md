@@ -15,19 +15,13 @@ States:
 st_select → st_vend → (st_mc_pulse ↔ st_mc_gap)* → st_select
 st_select → (st_refund_pulse ↔ st_refund_gap)* → st_select
 
-## Inputs: 
-
-coin (1 bit): rising-edge–counted +1 credit per pulse (capped at 7).
-
-btn (4 bits): user command sampled on the transition "0000" → non-zero
-
-0000 → wait (no command)
-
-0001 → cancel (clear selection, keep credit)
-
-0010 → refund (return all credit as spaced pulses)
-
-0011..1111 → product codes for items 1..13 (internal idx 0..12)
+## Inputs  
+- coin (1 bit): rising-edge–counted +1 credit per pulse (capped at 7).
+- btn (4 bits): user command sampled on the transition "0000" → non-zero
+                0000 → wait (no command)
+                0001 → cancel (clear selection, keep credit)
+                0010 → refund (return all credit as spaced pulses)
+                0011..1111 → product codes for items 1..13 (internal idx 0..12)
 
 Selection & Pricing
 
