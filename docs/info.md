@@ -41,7 +41,7 @@ Timing/Reset reset is asynchronous, active-high: immediately sends the FSM to id
 
 # How to test
 ### Scenario 1 — 
-1 coin (coin 1-cycle pulse), select btn in 0011
+Input: 1 coin (coin 1-cycle pulse), select btn in 0011
 
 ##### Expect: dispense_product='1' for 1 cycle, product_num= (10)10 = (1010)2 "until next scenario/btn press" and  change='0'.
 
@@ -64,21 +64,22 @@ Input : 2 coins ( 2 pulses each coin for 1-cycle pulse), select btn in 1011
 ### Scenario 4 — 
 Input : 3 coins ( 3 pulses, each coin for 1-cycle pulse), select btn in 0011 (price product = 1 coin)
 
-##### Expect: dispense_product='1' for 1 cycle, (1)10 = (0001)2 "until next scenario/btn press" and  change='1' then '0' then '1' (2 pulses for 2 coins) .
+##### Expect: dispense_product='1' for 1 cycle, product_num = (1)10 = (0001)2 "until next scenario/btn press" and  change='1' then '0' then '1' (2 pulses for 2 coins) .
 
 <img src="case 4.png" width="1260" alt="Scenario 4">
 
-### Scenario 1 — Simple vend, no change
-1 coin (coin 1-cycle pulse), select btn in 0011
+### Scenario 5 — Refund
+Input : 3 coins ( 3 pulses, each coin for 1-cycle pulse), select btn in 0010 (to return change)
 
-##### Expect: dispense_product='1' for 1 cycle, change='0'.
+##### Expect: dispense_product='0', product_num = (0)10 = (0000)2 "until next scenario/btn press" and  change='1' then '0' then '1' then '0' then '1' (3 pulses for 3 coins) .
 
 <img src="case 5.png" width="1260" alt="Scenario 5">
 
-### Scenario 1 — Simple vend, no change
-1 coin (coin 1-cycle pulse), select btn in 0011
-
-##### Expect: dispense_product='1' for 1 cycle, change='0'.
+### Scenario 6 — 
+Input : 2 coins ( 2 pulses, each coin for 1-cycle pulse), select btn in 1111 (product price= 3 coins)
+##### Expect: Nothing happens, dispense_product = product_num = change = 0
+Then press btn = '0001' to cancel the transaction, and then press btn = 0100 (product price = 1)
+##### Expect: dispense_product='1', product_num = (2)10 = (0010)2 " and  change='1' then '0' (1 pulse for 1 coin) .
 
 <img src="case 6.png" width="1260" alt="Scenario 6">
 
@@ -91,7 +92,7 @@ Inputs:
 
 Outputs:
 - 1x LED for dispense_product (short flash on vend)
-- 1x LED for change (pulses with visible gaps)
+- 1x LED for change 
 - 4x LEDs for product_num (optional)
 
 Clock & reset: board oscillator + synchronous active-high reset generation.
